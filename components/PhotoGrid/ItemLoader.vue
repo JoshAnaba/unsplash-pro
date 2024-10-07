@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { useHeightClass } from '~/composables'
+import { useHeightClass } from '~/composables/height-class'
 
 const { index } = defineProps<{
   index: number

@@ -1,5 +1,3 @@
-import { computed } from 'vue'
-
 export const useHeightClass = (index: number) => {
   return computed(() => {
     let className
