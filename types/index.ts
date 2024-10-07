@@ -7,6 +7,7 @@ interface ResponseFromApi {
   urls: { [key: string]: string };
   height: number;
   width: number;
+  alt_description: string;
 }
 // type PhotoResponseData = {
 //   photos: {
@@ -28,6 +29,7 @@ interface PhotoDetails {
   urls: { [key: string]: string };
   height: number;
   width: number;
+  alt_description: string;
 }
 
 export type { 

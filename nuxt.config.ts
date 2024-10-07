@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBaseUrl: 'https://api.unsplash.com',
-      ACCESS_TOKEN: '0jqbvwfWZzyihGAqXrXQCdleqPwfd9BdZ03K-Kujtp4',
+      ACCESS_TOKEN: process.env.CLIENT_ID
     }
   },
   image: {
