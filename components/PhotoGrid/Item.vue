@@ -91,5 +91,4 @@ const handleImageLoad = () => {
 .photo-grid-item:hover .text {
   transform: scale(1.03);
 }
-
 </style>

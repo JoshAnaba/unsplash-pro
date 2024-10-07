@@ -87,6 +87,7 @@ const closeModal = () => {
   img {
     width: auto;
     min-width: 600px;
+    max-width: 80vw;
     height: 70vh;
   }
 
@@ -146,7 +147,7 @@ const closeModal = () => {
   opacity: 0;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 640px) {
   .modal-content {
   border-radius: 19px;
 
@@ -157,7 +158,7 @@ const closeModal = () => {
 }
 
   img {
-    min-width: 100%;
+    min-width: unset !important;
   }
 
   .bottom {

@@ -68,8 +68,6 @@ const { data: photos, pending: isLoading, error } = await useAsyncData('photos',
 }
 
 .photo-grid-item {
-  /* aspect-ratio: 16 / 9; */
-  /* padding-bottom: calc(100% * (9 / 16)); */
   position: relative;
   overflow: hidden;
   border-radius: 7px;
@@ -130,8 +128,8 @@ const { data: photos, pending: isLoading, error } = await useAsyncData('photos',
   grid-row: span 5;
 }
 
-/* Responsive breakpoints */
-@media (max-width: 1024px) {
+/* breakpoints */
+@media screen and (max-width: 1024px) {
   .photo-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 120px;
@@ -139,7 +137,7 @@ const { data: photos, pending: isLoading, error } = await useAsyncData('photos',
   }
 }
 
-@media (max-width: 640px) {
+@media screen and (max-width: 640px) {
   .photo-grid {
     grid-template-columns: 1fr;
     grid-auto-rows: 200px;
