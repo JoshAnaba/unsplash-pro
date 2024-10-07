@@ -14,14 +14,11 @@
 
 <script setup lang="ts">
 import { useGridItemClass } from '~/composables'
+import type { PhotoDetails } from '~/types'
 
-const { deets } = defineProps({
-  deets: {
-    type: Object,
-    required: true
-  },
-})
-
+const { deets } = defineProps<{
+  deets: PhotoDetails
+}>()
 const currentImage = ref(deets.urls?.thumb);
 
 const isModalVisible = ref(false);

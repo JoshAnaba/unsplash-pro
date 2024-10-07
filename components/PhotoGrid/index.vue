@@ -1,94 +1,29 @@
 <template>
   <div class="photo-grid-wrapper">
-    <div v-if="photos?.length || isLoading" class="photo-grid">
+    <div v-if="photos?.length || ['pending'].includes(status)" class="photo-grid">
       <template v-if="photos?.length">
         <PhotoGridItem v-for="({ name, id, urls, location, height, width }, index) in photos" :key="index"
           :deets="{ index, id, name, urls, location, height, width }" />
       </template>
-      <template v-else-if="isLoading && !photos?.length">
-        <PhotoGridItemLoader v-for="index in query.per_page" :index="index - 1" :key="index" />
+      <template v-else-if="status === 'pending' && !photos?.length">
+        <PhotoGridItemLoader v-for="index in perPage" :index="index - 1" :key="index" />
       </template>
     </div>
-    <template v-else-if="!isLoading && !photos?.length">
+    <template v-else-if="status === 'success' && !photos?.length">
       <NoResult />
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-
+import type { PhotoDetails } from '~/types'
 const route = useRoute()
-const router = useRouter()
+const { status } = defineProps<{
+  status: 'pending' | 'idle' | 'success' | 'error',
+  photos: PhotoDetails[]
+}>()
 
-const query = reactive({
-  page: Number(route.query.page) || 1,
-  per_page: Number(route.query.per_page) || 12
-})
-
-const emit = defineEmits(['onIsLoading'])
-const config = useRuntimeConfig()
-
-const apiUrl = computed(() => {
-  if (route.name === 'search-id' && route.params.id) {
-    return `${config.public.apiBaseUrl}/search/photos?query=${route.params.id}`
-  } else {
-    return `${config.public.apiBaseUrl}/photos`
-  }
-})
-
-watch(query, (newQuery) => {
-  router.replace({
-    query: {
-      ...route.query,
-      page: newQuery.page,
-      per_page: newQuery.per_page
-    }
-  })
-})
-
-watch(route, () => {
-  query.page = Number(route.query.page) || 1
-  query.per_page = Number(route.query.per_page) || 12
-})
-
-const ensureQueryParams = () => {
-  if (!route.query.page || !route.query.per_page) {
-    router.replace({
-      query: {
-        ...route.query,
-        page: query.page,
-        per_page: query.per_page
-      }
-    })
-  }
-}
-
-onMounted(() => {
-  ensureQueryParams()
-})
-
-const { data: photos, pending: isLoading, error } = await useAsyncData('photos', async () => {
-  const headers = {
-    Authorization: `Client-ID ${config.public.ACCESS_TOKEN}`,
-  }
-
-  return await $fetch(apiUrl.value, {
-    headers,
-    query,
-  })
-}, {
-  server: false,
-  transform: (photos) => {
-    return route.name === 'search-id' ? photos.results.map(photo => ({ id: photo.id, name: photo.user.name, location: photo.user.location, urls: photo.urls, height: photo.height, width: photo.width })) : photos.map(photo => ({ id: photo.id, name: photo.user.name, location: photo.user.location, urls: photo.urls, height: photo.height, width: photo.width }))
-  },
-})
-
-watch(isLoading, (val) => {
-  emit('onIsLoading', val)
-}, {
-  immediate: true,
-})
-
+const perPage = computed(() => Number(route.query.per_page) || 12);
 </script>
 
 <style>

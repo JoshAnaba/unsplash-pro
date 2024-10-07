@@ -19,7 +19,7 @@
             </svg>
             Back
           </button>
-          <h2 v-if="isLoading">Searching for <span>"{{ route.params.id }}"</span></h2>
+          <h2 v-if="status === 'pending'">Searching for <span>"{{ route.params.id }}"</span></h2>
           <h2 v-else>Search Results for <span>"{{ route.params.id }}"</span></h2>
         </div>
       </template>
@@ -30,12 +30,9 @@
 <script setup lang="ts">
 const route = useRoute()
 const router = useRouter()
-const { isLoading } = defineProps({
-  isLoading: {
-    type: Boolean,
-    required: true
-  }
-})
+const { status } = defineProps<{
+  status: 'pending' | 'idle' | 'success' | 'error'
+}>()
 const searchQuery = ref<string>('')
 const updateSearch = () => {
   router.push(`/search/${searchQuery.value}`)

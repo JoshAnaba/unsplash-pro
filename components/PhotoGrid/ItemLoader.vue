@@ -10,17 +10,12 @@
 <script setup lang="ts">
 import { useGridItemClass } from '~/composables'
 
-const {index} = defineProps({
-  index: {
-    type: Number,
-    required: true
-  },
-})
+const { index } = defineProps<{
+  index: number
+}>()
 
 const getGridItemClass = (index: number) => useGridItemClass(index).value
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
