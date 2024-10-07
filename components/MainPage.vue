@@ -39,9 +39,6 @@ const { data: photos, status } = await useAsyncData('photos', async () => {
     })) : []
 
   },
-  // getCachedData(key) {
-  //   return nuxtApp.payload.data[key] || nuxtApp.static.data[key]
-  // }
 })
 
 
