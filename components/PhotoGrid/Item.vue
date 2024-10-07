@@ -1,5 +1,4 @@
 <template>
-  <!-- <div :class="['photo-grid-item', getGridItemClass(deets.index)]" @click="openModal" :style="{animationDelay: `${deets.index * 0.15}s`}"> -->
   <div :class="['photo-grid-item', getGridItemClass(deets.index)]" @click="openModal">
     <NuxtImg :src="currentImage" object-fit="cover" layout="responsive" width="300" height="400" format="webp"
       :alt="`Photo of ${deets.name}`" class="photo" @load="handleImageLoad"

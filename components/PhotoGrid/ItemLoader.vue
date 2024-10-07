@@ -10,7 +10,6 @@
 <script setup lang="ts">
 import { useGridItemClass } from '~/composables'
 
-import { ref } from 'vue';
 const {index} = defineProps({
   index: {
     type: Number,
@@ -18,7 +17,6 @@ const {index} = defineProps({
   },
 })
 
-// If you need to use it multiple times
 const getGridItemClass = (index: number) => useGridItemClass(index).value
 
 </script>

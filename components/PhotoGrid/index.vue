@@ -6,7 +6,6 @@
           :deets="{ index, id, name, urls, location, height, width }" />
       </template>
       <template v-else-if="isLoading && !photos?.length">
-        <!-- <template v-if="isLoading || photos?.length"> -->
         <PhotoGridItemLoader v-for="index in query.per_page" :index="index - 1" :key="index" />
       </template>
     </div>

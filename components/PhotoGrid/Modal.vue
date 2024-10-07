@@ -26,8 +26,6 @@
 </template>
 
 <script setup>
-// import { ref } from 'vue';
-
 const { deets, currentImage, isVisible } = defineProps({
   deets: {
     type: Object,
