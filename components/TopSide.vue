@@ -98,13 +98,13 @@ h2 {
     svg {
       position: absolute;
       top: 50%;
-      transform: translate(80%, -50%)
+      transform: translate(20px, -50%)
     }
 
     input {
       position: relative;
       width: 100%;
-      padding: 15px 16px 15px 50px;
+      padding: 15px 16px 15px 58px;
       height: 60px;
       font-size: 16px;
       border-radius: 8px;
