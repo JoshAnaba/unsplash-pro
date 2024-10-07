@@ -53,11 +53,11 @@ const handleImageLoad = () => {
   width: 100%;
   height: 100%;
   display: block;
-  transition: filter var(--base-anim-duration) ease-in-out, opacity var(--base-anim-duration) ease-in-out;
+  transition: transform var(--base-anim-duration) ease-in-out, filter var(--base-anim-duration) ease-in-out, opacity var(--base-anim-duration) ease-in-out;
 
   &.low-quality {
     filter: blur(3px);
-    transition: opacity var(--base-anim-duration) ease-in-out;
+    transition: opacity var(--base-anim-duration) ease;
   }
 }
 
