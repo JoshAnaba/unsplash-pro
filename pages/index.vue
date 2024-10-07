@@ -22,3 +22,4 @@ useHead({
 <!-- TODO:Separate components where neccessary -->
 <!-- TODO: hide CLient ID from public repo -->
 <!-- TODO: add readme.md, check out requirements and see if any applies to completed test, like ci.yml, Gulp -->
+<!-- TODO: cater for 404 search page -->

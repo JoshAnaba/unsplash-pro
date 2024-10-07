@@ -9,7 +9,7 @@
         <PhotoGridItemLoader v-for="index in query.per_page" :index="index - 1" :key="index" />
       </template>
     </div>
-    <template v-else-if="!isLoading && photos?.length">
+    <template v-else-if="!isLoading && !photos?.length">
       <NoResult />
     </template>
   </div>
@@ -22,6 +22,8 @@ const query = reactive({
   page: 1,
   per_page: 12,
 })
+
+const emit = defineEmits(['onIsLoading'])
 const config = useRuntimeConfig()
 
 const apiUrl = computed(() => {
@@ -46,6 +48,12 @@ const { data: photos, pending: isLoading, error } = await useAsyncData('photos',
   transform: (photos) => {
     return route.name === 'search-id' ? photos.results.map(photo => ({ id: photo.id, name: photo.user.name, location: photo.user.location, urls: photo.urls, height: photo.height, width: photo.width })) : photos.map(photo => ({ id: photo.id, name: photo.user.name, location: photo.user.location, urls: photo.urls, height: photo.height, width: photo.width }))
   },
+})
+
+watch(isLoading, (val) => {
+  emit('onIsLoading', val)
+}, {
+  immediate: true,
 })
 
 </script>

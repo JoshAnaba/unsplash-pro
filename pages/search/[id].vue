@@ -1,10 +1,11 @@
 <template>
-  <TopSide />
-  <PhotoGrid />
+  <TopSide :is-loading="isLoading" />
+  <PhotoGrid @on-is-loading="isLoading = $event" />
 </template>
 
 <script setup lang="ts">
 const route = useRoute()
+const isLoading = ref(true)
 useHead({
   title: `Searching for ${route.params.id}... | Photo Library by Jon Doe`,
   meta: [

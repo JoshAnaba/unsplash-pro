@@ -18,7 +18,8 @@
                 clip-rule="evenodd" />
             </svg>
           </button>
-          <h2>Search Results for <span>"{{ route.params.id }}"</span></h2>
+          <h2 v-if="isLoading">Searching for <span>"{{ route.params.id }}"</span></h2>
+          <h2 v-else>Search Results for <span>"{{ route.params.id }}"</span></h2>
         </div>
       </template>
     </div>
@@ -28,6 +29,12 @@
 <script setup lang="ts">
 const route = useRoute()
 const router = useRouter()
+const { isLoading } = defineProps({
+  isLoading: {
+    type: Boolean,
+    required: true
+  }
+})
 const searchQuery = ref<string>('')
 const updateSearch = () => {
   router.push(`/search/${searchQuery.value}`)
@@ -51,6 +58,8 @@ h2 {
 }
 
 .search-results {
+  /* padding: 0 40px; */
+
   button {
     background: transparent;
     border: none;
@@ -112,6 +121,7 @@ h2 {
       background-color: transparent;
       z-index: 1;
       outline: none;
+      font-weight: 600;
 
       :placeholder {
         color: rgb(57 61 89);
