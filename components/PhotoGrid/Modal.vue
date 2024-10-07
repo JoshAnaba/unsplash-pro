@@ -25,7 +25,7 @@
   </transition>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { deets, currentImage, isVisible } = defineProps({
   deets: {
     type: Object,

@@ -2,8 +2,8 @@
   <div class="photo-grid-wrapper">
     <div v-if="photos?.length || ['pending'].includes(status)" class="photo-grid">
       <template v-if="photos?.length">
-        <PhotoGridItem v-for="({ name, id, urls, location, height, width }, index) in photos" :key="index"
-          :deets="{ index, id, name, urls, location, height, width }" />
+        <PhotoGridItem v-for="(deets, index) in photos" :key="index"
+          :deets="{...deets, index}" />
       </template>
       <template v-else-if="status === 'pending' && !photos?.length">
         <PhotoGridItemLoader v-for="index in perPage" :index="index - 1" :key="index" />

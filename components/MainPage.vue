@@ -62,7 +62,7 @@ const { data: photos, status } = await useAsyncData('photos', async () => {
     query,
   })
 }, {
-  server: false,
+  server: true,
   transform: (response) => {
     return response.map((photo: ResponseFromApi) => ({
       id: photo.id,
@@ -74,9 +74,9 @@ const { data: photos, status } = await useAsyncData('photos', async () => {
     }));
 
   },
-  getCachedData(key) {
-    return nuxtApp.payload.data[key] || nuxtApp.static.data[key]
-  }
+  // getCachedData(key) {
+  //   return nuxtApp.payload.data[key] || nuxtApp.static.data[key]
+  // }
 })
 
 
