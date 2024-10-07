@@ -73,6 +73,7 @@ const closeModal = () => {
   background-color: #fff;
   height: fit-content;
   width: fit-content;
+  animation: zoom-in-sm 0.4s ease-in-out forwards;
 
   .photo-container {
     width: fit-content;
@@ -117,7 +118,6 @@ const closeModal = () => {
   right: -80px;
   background: transparent;
   border: none;
-  /* padding: 8px 12px; */
   cursor: pointer;
   font-weight: bold;
   font-size: 16px;
@@ -144,6 +144,39 @@ const closeModal = () => {
 .modal-enter,
 .modal-leave-to {
   opacity: 0;
-  /* transform: scale(0.9); */
+}
+
+@media screen and (max-width: 800px) {
+  .modal-content {
+  border-radius: 19px;
+
+  .photo-container {
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+  }
+}
+
+  img {
+    min-width: 100%;
+  }
+
+  .bottom {
+    padding: 20px 15px 20px;
+  }
+
+  .close-btn {
+    top: 5px;
+    right: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+      fill: #161616
+    }
+  }
 }
 </style>
