@@ -11,7 +11,7 @@
           </button>
           <div class="photo-container">
             <NuxtImg :src="currentImage" object-fit="cover" layout="responsive" :width="300" :height="400"
-              alt="Photo in modal" class="modal-photo" format="webp"
+              alt="Photo in modal" class="modal-photo"
               :class="[currentImage === deets.urls?.thumb ? 'low-quality' : '']" />
           </div>
 

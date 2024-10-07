@@ -1,6 +1,6 @@
 <template>
   <div :class="['photo-grid-item', getGridItemClass(deets.index)]" @click="openModal">
-    <NuxtImg :src="currentImage" object-fit="cover" layout="responsive" width="300" height="400" format="webp"
+    <NuxtImg :src="currentImage" object-fit="cover" layout="responsive" width="300" height="400"
       :alt="`Photo of ${deets.name}`" class="photo" @load="handleImageLoad"
       :class="[currentImage === deets.urls?.thumb ? 'low-quality' : '']" />
     <div class="overlay" />
@@ -9,7 +9,7 @@
       <p>{{ deets.location }}</p>
     </div>
   </div>
-  <LazyPhotoGridModal :deets="deets" :currentImage="currentImage" :isVisible="isModalVisible" @close="closeModal" />
+  <PhotoGridModal :deets="deets" :currentImage="currentImage" :isVisible="isModalVisible" @close="closeModal" />
 </template>
 
 <script setup lang="ts">

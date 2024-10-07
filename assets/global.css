@@ -41,6 +41,8 @@ p {
 }
 
 
+/* transitions && keyframes */
+
 .page-enter-active,
 .page-leave-active {
   transition: opacity var(--base-anim-duration);
