@@ -53,11 +53,11 @@ const handleImageLoad = () => {
   width: 100%;
   height: 100%;
   display: block;
-  transition: transform 0.3s ease-in-out;
+  transition: transform var(--base-anim-duration) ease-in-out;
 
   &.low-quality {
     filter: blur(3px);
-    transition: opacity 0.3s ease;
+    transition: opacity var(--base-anim-duration) ease;
   }
 }
 
@@ -69,7 +69,7 @@ const handleImageLoad = () => {
   justify-content: center;
   align-items: center;
   opacity: 1;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--base-anim-duration) ease;
 }
 
 .text {
@@ -79,7 +79,7 @@ const handleImageLoad = () => {
   bottom: 30px;
   left: 15px;
   opacity: 0;
-  transition: transform 0.3s ease-in-out;
+  transition: transform var(--base-anim-duration) ease-in-out;
   animation: move-up-sm-position 0.7s ease-in-out forwards;
   /* animation-delay: 0.8s; */
 

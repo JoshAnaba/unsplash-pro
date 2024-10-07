@@ -15,6 +15,10 @@ body {
   background-color: rgb(255 255 255);
 }
 
+:root {
+  --base-anim-duration: 0.3s
+}
+
 a {
   text-decoration: none;
 }
@@ -39,11 +43,11 @@ p {
 
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.3s;
-  -webkit-transition: opacity 0.3s;
-  -moz-transition: opacity 0.3s;
-  -ms-transition: opacity 0.3s;
-  -o-transition: opacity 0.3s;
+  transition: opacity var(--base-anim-duration);
+  -webkit-transition: opacity var(--base-anim-duration);
+  -moz-transition: opacity var(--base-anim-duration);
+  -ms-transition: opacity var(--base-anim-duration);
+  -o-transition: opacity var(--base-anim-duration);
 }
 .page-enter,
 .page-leave-to {

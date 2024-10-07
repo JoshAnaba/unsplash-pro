@@ -51,8 +51,6 @@ h2 {
 }
 
 .search-results {
-  /* padding: 0 40px; */
-
   button {
     background: transparent;
     border: none;
@@ -118,6 +116,15 @@ h2 {
       :placeholder {
         color: rgb(57 61 89);
       }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .top-side {
+    .inner {
+      width: 100%;
+      padding: 0 20px;
     }
   }
 }

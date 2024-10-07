@@ -73,7 +73,7 @@ const closeModal = () => {
   background-color: #fff;
   height: fit-content;
   width: fit-content;
-  animation: zoom-in-sm 0.4s ease-in-out forwards;
+  animation: zoom-in-sm var(--base-anim-duration) ease-in-out forwards;
 
   .photo-container {
     width: fit-content;
@@ -105,11 +105,11 @@ const closeModal = () => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease-in-out;
+  transition: transform var(--base-anim-duration) ease-in-out;
 
   &.low-quality {
     filter: blur(3px);
-    transition: opacity 0.3s ease;
+    transition: opacity var(--base-anim-duration) ease;
   }
 }
 
@@ -127,7 +127,7 @@ const closeModal = () => {
   height: fit-content;
 
   svg {
-    transition: transform 0.3s ease-in-out;
+    transition: transform var(--base-anim-duration) ease-in-out;
   }
 
   &:hover svg {
@@ -139,7 +139,7 @@ const closeModal = () => {
 .modal-enter-active,
 .modal-leave-active {
   opacity: 1;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: opacity var(--base-anim-duration) ease-in-out, transform var(--base-anim-duration) ease-in-out;
 }
 
 .modal-enter,
