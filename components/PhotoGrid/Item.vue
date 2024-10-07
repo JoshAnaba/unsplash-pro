@@ -1,12 +1,12 @@
 <template>
   <div :class="['photo-grid-item']" @click="openModal">
     <NuxtImg :src="currentImage" object-fit="cover" layout="responsive" width="300" height="400"
-      :alt="`Photo of ${deets.name}`" class="photo" @load="handleImageLoad"
-      :class="[currentImage === deets.urls?.thumb ? 'low-quality' : '']" />
+      :alt="deets.alt_description" class="photo" @load="handleImageLoad"
+      :class="[currentImage === deets.urls?.thumb ? 'low-quality' : '']" loading="lazy" />
     <div class="overlay" />
     <div class="text" :style="{ animationDelay: `${deets.index * 0.5}s` }">
       <h3>{{ deets.name }}</h3>
-      <p>{{ deets.location }}</p>
+      <p>{{ deets.location || 'Unknown Location' }}</p>
     </div>
   </div>
   <PhotoGridModal :deets="deets" :currentImage="currentImage" :isVisible="isModalVisible" @close="closeModal" />
@@ -40,7 +40,7 @@ const handleImageLoad = () => {
   animation: move-up-sm 0.9s ease-in-out forwards;
 } */
 .photo-grid-item:hover .photo {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .photo {
@@ -52,7 +52,7 @@ const handleImageLoad = () => {
 
   &.low-quality {
     filter: blur(3px);
-    transition: opacity var(--base-anim-duration) ease;
+    transition: opacity var(--base-anim-duration) ease-in-out;
   }
 }
 

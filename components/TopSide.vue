@@ -1,5 +1,5 @@
 <template>
-  <div class="top-side">
+  <div :class="['top-side', !route.params.id ? 'anim' : '']">
     <div class="inner">
       <div v-if="!route.params.id" class="search-container">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="rgb(84 84 94)" width="20" height="20">
@@ -39,7 +39,7 @@ const updateSearch = () => {
 }
 </script>
 
-<style>
+<style scoped>
 h2 {
   font-size: 30px;
   font-weight: 600;
@@ -71,7 +71,7 @@ h2 {
     border-radius: 8px;
     font-weight: 500;
     color: rgb(108 123 141);
-    transition: all 0.3s ease-in-out;
+    transition: all var(--base-anim-duration) ease-in-out;
 
     &:hover {
       background-color: rgba(108, 123, 141, 0.1);
@@ -80,15 +80,21 @@ h2 {
 }
 
 .top-side {
-  --top-side-height: 280px;
-  height: var(--top-side-height);
+  --top-side-height: 320px;
+  --initial-top-side-height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
+  &:not(.anim) {
+    height: var(--top-side-height);
+  }
+  &.anim {
+    height: var(--initial-top-side-height);
+    animation: shrink-height 0.8s ease-in-out forwards;
+  }
 
   .inner {
     display: flex;
-    width: 100%;
     align-items: center;
     width: 80%;
     animation: move-down-sm 0.8s ease-in-out forwards;
@@ -98,20 +104,30 @@ h2 {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgb(221 227 234);
     z-index: -1;
+  }
+
+  &:not(.anim):after {
     height: var(--top-side-height);
+    background-color: rgb(221 227 234);
+  }
+
+  &.anim:after {
+    height: var(--initial-top-side-height);
+    background-color: #fff;
+    animation: shrink-height 0.8s ease-in-out forwards;
   }
 
   .search-container {
     position: relative;
     display: inline-block;
     max-width: 1200px;
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
     border-radius: 8px;
     background-color: #fff;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transform: scale(0.9);
+    animation: scale-search-bar 1s ease-in-out forwards;
 
     svg {
       position: absolute;
@@ -123,7 +139,7 @@ h2 {
       position: relative;
       width: 100%;
       padding: 15px 16px 15px 58px;
-      height: 60px;
+      height: 70px;
       font-size: 16px;
       border-radius: 8px;
       border: 1px solid #ddd;
@@ -131,8 +147,14 @@ h2 {
       z-index: 1;
       outline: none;
       font-weight: 600;
+      transition: box-shadow var(--base-anim-duration) ease-in-out;
+      box-shadow: 0 5px 20px #0000001a;
 
-      :placeholder {
+      &:focus {
+        box-shadow: 0 10px 40px #0003;;
+      }
+
+      &:placeholder {
         color: rgb(57 61 89);
       }
     }
@@ -145,6 +167,29 @@ h2 {
       width: 100%;
       padding: 0 20px;
     }
+  }
+}
+
+@keyframes shrink-height {
+  from {
+    height: var(--initial-top-side-height);
+  }
+
+  to {
+    background-color: rgb(221 227 234);
+    height: var(--top-side-height);
+  }
+}
+
+@keyframes scale-search-bar {
+  from {
+    width: 80%;
+    transform: scale(0.9);
+  }
+
+  to {
+    width: 100%;
+    transform: scale(1.0);
   }
 }
 </style>

@@ -28,8 +28,10 @@ const perPage = computed(() => Number(route.query.per_page) || 12);
 <style>
 .photo-grid-wrapper {
   position: relative;
-  top: -40px;
   padding: 0 40px;
+  top: 0px;
+  opacity: 0;
+  animation: move-up-opacity 0.8s ease-in-out 0.8s forwards;
 }
 
 .photo-grid {
@@ -50,7 +52,7 @@ const perPage = computed(() => Number(route.query.per_page) || 12);
   margin-bottom: 20px;
 
   &:not(.loader) {
-    cursor: pointer;
+    cursor:-webkit-zoom-in;
   }
 
   &.loader {
@@ -103,6 +105,16 @@ const perPage = computed(() => Number(route.query.per_page) || 12);
   .photo-grid {
     columns: 1 300px;
     padding: 0 0
+  }
+}
+
+@keyframes move-up-opacity {
+  30% {
+    opacity: 1;
+  }
+  100% {
+    top: -40px;
+    opacity: 1;
   }
 }
 </style>

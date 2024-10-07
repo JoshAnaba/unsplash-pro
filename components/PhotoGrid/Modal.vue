@@ -11,13 +11,14 @@
           </button>
           <div class="photo-container">
             <NuxtImg :src="currentImage" object-fit="cover" layout="responsive" :width="300" :height="400"
-              alt="Photo in modal" class="modal-photo"
+              :alt="deets.alt_description" class="modal-photo"
+              loading="lazy"
               :class="[currentImage === deets.urls?.thumb ? 'low-quality' : '']" />
           </div>
 
           <div class="bottom">
             <h3>{{ deets.name }}</h3>
-            <p>{{ deets.location }}</p>
+            <p>{{ deets.location || 'Unknown Location' }}</p>
           </div>
         </div>
       </div>
@@ -55,6 +56,7 @@ const closeModal = () => {
   display: flex;
   justify-content: center;
   z-index: 50;
+  cursor:-webkit-zoom-out;
 }
 
 .modal-content-wrapper {
@@ -73,6 +75,7 @@ const closeModal = () => {
   background-color: #fff;
   height: fit-content;
   width: fit-content;
+  cursor: default;
   animation: zoom-in-sm var(--base-anim-duration) ease-in-out forwards;
 
   .photo-container {
