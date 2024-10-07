@@ -1,6 +1,6 @@
 <template>
   <div class="photo-grid-wrapper">
-    <div v-if="photos?.length || ['idle', 'pending'].includes(status)" class="photo-grid">
+    <div v-if="(photos && photos?.length) || ['idle', 'pending'].includes(status)" class="photo-grid">
       <template v-if="photos?.length">
         <PhotoGridItem v-for="(deets, index) in photos" :key="index" :deets="{ ...deets, index }" />
       </template>
