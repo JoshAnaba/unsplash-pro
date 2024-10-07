@@ -56,7 +56,7 @@ const handleImageLoad = () => {
   transition: transform 0.3s ease-in-out;
 
   &.low-quality {
-    filter: blur(10px);
+    filter: blur(3px);
     transition: opacity 0.3s ease;
   }
 }
