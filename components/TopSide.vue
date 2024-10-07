@@ -19,7 +19,7 @@
             </svg>
             Back
           </button>
-          <h2 v-if="status === 'pending'">Searching for <span>"{{ route.params.id }}"</span></h2>
+          <h2 v-if="status !== 'success'">Searching for <span>"{{ route.params.id }}"</span></h2>
           <h2 v-else>Search Results for <span>"{{ route.params.id }}"</span></h2>
         </div>
       </template>

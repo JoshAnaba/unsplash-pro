@@ -59,7 +59,7 @@ const { data: photos, status } = await useAsyncData(`photos_${route.params.id}`,
     query,
   })
 }, {
-  server: true,
+  server: false,
   transform: (response) => {
     return response?.results?.map((photo: ResponseFromApi) => ({
       id: photo.id,

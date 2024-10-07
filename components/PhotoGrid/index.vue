@@ -1,14 +1,14 @@
 <template>
   <div class="photo-grid-wrapper">
-    <div v-if="photos?.length || ['pending'].includes(status)" class="photo-grid">
+    <div v-if="photos?.length || ['idle', 'pending'].includes(status)" class="photo-grid">
       <template v-if="photos?.length">
         <PhotoGridItem v-for="(deets, index) in photos" :key="index" :deets="{ ...deets, index }" />
       </template>
-      <template v-else-if="status === 'pending' && !photos?.length">
+      <template v-else-if="['idle', 'pending'].includes(status) && !photos?.length">
         <PhotoGridItemLoader v-for="index in perPage" :index="index - 1" :key="index" />
       </template>
     </div>
-    <template v-else-if="status === 'success' && !photos?.length">
+    <template v-else-if="['error', 'idle', 'success'].includes(status) && !photos?.length">
       <NoResult />
     </template>
   </div>
