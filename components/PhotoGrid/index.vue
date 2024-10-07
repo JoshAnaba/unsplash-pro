@@ -56,9 +56,7 @@ const { data: photos, pending: isLoading, error } = await useAsyncData('photos',
   position: relative;
   top: -40px;
   padding: 0 40px;
-  animation: move-up-sm 0.7s ease-in-out forwards;
 }
-
 
 .photo-grid {
   max-width: 1200px;
