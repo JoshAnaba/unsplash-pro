@@ -78,7 +78,6 @@ h2 {
 
     &:hover {
       background-color: rgba(108, 123, 141, 0.1);
-      /* color: white; */
     }
   }
 }
