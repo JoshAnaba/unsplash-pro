@@ -2,8 +2,7 @@
   <div class="photo-grid-wrapper">
     <div v-if="photos?.length || ['pending'].includes(status)" class="photo-grid">
       <template v-if="photos?.length">
-        <PhotoGridItem v-for="(deets, index) in photos" :key="index"
-          :deets="{...deets, index}" />
+        <PhotoGridItem v-for="(deets, index) in photos" :key="index" :deets="{ ...deets, index }" />
       </template>
       <template v-else-if="status === 'pending' && !photos?.length">
         <PhotoGridItemLoader v-for="index in perPage" :index="index - 1" :key="index" />
@@ -36,10 +35,8 @@ const perPage = computed(() => Number(route.query.per_page) || 12);
 .photo-grid {
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  columns: 3 300px;
   gap: 25px 30px;
-  grid-auto-rows: 130px;
   padding: 0 70px;
 }
 
@@ -48,6 +45,9 @@ const perPage = computed(() => Number(route.query.per_page) || 12);
   overflow: hidden;
   border-radius: 7px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 20px;
 
   &:not(.loader) {
     cursor: pointer;
@@ -88,28 +88,10 @@ const perPage = computed(() => Number(route.query.per_page) || 12);
   object-fit: cover;
 }
 
-.span-row-2 {
-  grid-row: span 2;
-}
-
-.span-row-3 {
-  grid-row: span 3;
-}
-
-.span-row-4 {
-  grid-row: span 4;
-}
-
-.span-row-5 {
-  grid-row: span 5;
-}
-
 /* breakpoints */
 @media screen and (max-width: 1024px) {
   .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 120px;
-    padding: 0 40px;
+    columns: 2 300px;
   }
 }
 
@@ -119,17 +101,8 @@ const perPage = computed(() => Number(route.query.per_page) || 12);
   }
 
   .photo-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 200px;
-    padding: 0px;
-  }
-
-  .span-row-2,
-  .span-row-3,
-  .span-row-4,
-  .span-row-5 {
-    grid-column: span 2;
-    grid-row: span 2;
+    columns: 1 300px;
+    padding: 0 0
   }
 }
 </style>

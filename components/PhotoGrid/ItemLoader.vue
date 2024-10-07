@@ -8,14 +8,31 @@
 </template>
 
 <script setup lang="ts">
-import { useGridItemClass } from '~/composables'
+import { useHeightClass } from '~/composables'
 
 const { index } = defineProps<{
   index: number
 }>()
 
-const getGridItemClass = (index: number) => useGridItemClass(index).value
+const getGridItemClass = (index: number) => useHeightClass(index).value
 
 </script>
 
-<style scoped></style>
+<style scoped>
+.loader {
+  --base-height: 200px;
+
+  &.height-2 {
+    height: var(--base-height);
+  }
+  &.height-3 {
+    height: calc(var(--base-height) * 1.5);
+  }
+  &.height-4 {
+    height: calc(var(--base-height) * 2);
+  }
+  &.height-5 {
+    height: calc(var(--base-height) * 2.5);
+  }
+}
+</style>
