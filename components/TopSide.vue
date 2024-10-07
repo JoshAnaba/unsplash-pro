@@ -104,7 +104,7 @@ h2 {
     input {
       position: relative;
       width: 100%;
-      padding: 15px 16px 15px 55px;
+      padding: 15px 16px 15px 50px;
       height: 60px;
       font-size: 16px;
       border-radius: 8px;
