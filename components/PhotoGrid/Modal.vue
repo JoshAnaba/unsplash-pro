@@ -158,7 +158,7 @@ const closeModal = () => {
 }
 
   img {
-    min-width: unset !important;
+    min-width: 90vw !important;
     max-width: 90vw !important;
   }
 
