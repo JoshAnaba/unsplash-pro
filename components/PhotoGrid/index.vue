@@ -1,15 +1,15 @@
 <template>
   <div class="photo-grid-wrapper">
     <div v-if="photos?.length || isLoading" class="photo-grid">
-      <template v-if="photos?.length">
+      <template v-if="!photos?.length">
         <PhotoGridItem v-for="({ name, id, urls, location, height, width }, index) in photos" :key="index"
           :deets="{ index, id, name, urls, location, height, width }" />
       </template>
-      <template v-else-if="isLoading && !photos?.length">
+      <template v-else-if="!isLoading && photos?.length">
         <PhotoGridItemLoader v-for="index in query.per_page" :index="index - 1" :key="index" />
       </template>
     </div>
-    <template v-else-if="!isLoading && !photos?.length">
+    <template v-else-if="!isLoading && photos?.length">
       <NoResult />
     </template>
   </div>
@@ -87,18 +87,18 @@ const { data: photos, pending: isLoading, error } = await useAsyncData('photos',
       gap: 5px;
       position: absolute;
       bottom: 30px;
-      left: 15px;
+      padding: 0 15px;
 
       div {
         border-radius: 2px;
         background-color: rgb(231 231 231);
         height: 12px;
 
-        :first-of-type {
+        &:first-of-type {
           width: 60%;
         }
 
-        :last-of-type {
+        &:last-of-type {
           width: 40%;
         }
       }
