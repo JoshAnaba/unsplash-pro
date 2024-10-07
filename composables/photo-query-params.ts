@@ -1,8 +1,8 @@
-export const useQueryParams = () => {
+export const useQueryParamsForPhotos = () => {
   const route = useRoute()
   const router = useRouter()
 
-  const query = ref({
+  const query = reactive({
     page: Number(route.query.page) || 1,
     per_page: Number(route.query.per_page) || 12
   })
@@ -18,8 +18,8 @@ export const useQueryParams = () => {
   })
 
   watch(route, () => {
-    query.value.page = Number(route.query.page) || 1
-    query.value.per_page = Number(route.query.per_page) || 12
+    query.page = Number(route.query.page) || 1
+    query.per_page = Number(route.query.per_page) || 12
   })
 
   const ensureQueryParams = () => {
@@ -27,8 +27,8 @@ export const useQueryParams = () => {
       router.replace({
         query: {
           ...route.query,
-          page: query.value.page,
-          per_page: query.value.per_page
+          page: query.page,
+          per_page: query.per_page
         }
       })
     }

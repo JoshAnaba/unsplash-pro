@@ -1,16 +1,18 @@
 <template>
   <TopSide :status="status" />
-  <PhotoGrid :photos="(photos as PhotoDetails[])" :status="status" :perPage="query.per_page" />
+  <PhotoGrid :photos="(photos as PhotoDetails[]) ?? []" :status="status" :perPage="query.per_page" />
 </template>
 
 <script setup lang="ts">
-import { useQueryParams } from '~/composables/photo-query-params'
-import type { ResponseFromApi, PhotoDetails } from '~/types';
-const config = useRuntimeConfig()
-const emit = defineEmits(['onStatusChange'])
+import type { ResponseFromApi, PhotoDetails } from '~/types'
+import { useQueryParamsForPhotos } from '~/composables/photo-query-params';
+
+const { query } = useQueryParamsForPhotos()
 
 const route = useRoute()
-const { query } = useQueryParams()
+
+const emit = defineEmits(['onStatusChange'])
+const config = useRuntimeConfig()
 
 const { data: photos, status } = await useAsyncData(`photos_${route.params.id}`, async () => {
   const headers = {
@@ -23,17 +25,18 @@ const { data: photos, status } = await useAsyncData(`photos_${route.params.id}`,
   })
 }, {
   server: true,
-  transform: (photos) => {
-    return photos?.results?.map((photo: ResponseFromApi) => ({
+  transform: (response) => {
+    return response?.results?.length ? response?.results?.map((photo: ResponseFromApi) => ({
       id: photo.id,
       name: photo.user.name,
       location: photo.user.location,
       urls: photo.urls,
       height: photo.height,
       width: photo.width
-    }));
+    })) : [];
   },
 })
+
 
 watch(status, (val) => {
   emit('onStatusChange', val)

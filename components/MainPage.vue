@@ -1,18 +1,16 @@
 <template>
   <TopSide :status="status" />
-  {{ status }}
-  <!-- <PhotoGrid :photos="(photos as PhotoDetails[])" 
+  <PhotoGrid :photos="(photos as PhotoDetails[]) ?? []" 
   :status="status" 
   :perPage="query.per_page" 
-  /> -->
+  />
 </template>
 
 <script setup lang="ts">
-import { useQueryParams } from '~/composables/photo-query-params'
 import type { PhotoDetails, ResponseFromApi } from '~/types'
+import { useQueryParamsForPhotos } from '~/composables/photo-query-params';
 
-const { query } = useQueryParams()
-
+const {query} = useQueryParamsForPhotos()
 
 const emit = defineEmits(['onStatusChange'])
 const config = useRuntimeConfig()
@@ -30,7 +28,7 @@ const { data: photos, status } = await useAsyncData('photos', async () => {
 }, {
   server: true,
   transform: (response) => {
-    return response.map((photo: ResponseFromApi) => ({
+    return response.length ? response.map((photo: ResponseFromApi) => ({
       id: photo.id,
       name: photo.user.name,
       location: photo.user.location,
@@ -38,9 +36,12 @@ const { data: photos, status } = await useAsyncData('photos', async () => {
       height: photo.height,
       width: photo.width,
       alt_description: photo.alt_description,
-    }));
+    })) : []
 
   },
+  // getCachedData(key) {
+  //   return nuxtApp.payload.data[key] || nuxtApp.static.data[key]
+  // }
 })
 
 
