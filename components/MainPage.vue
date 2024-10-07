@@ -1,10 +1,13 @@
 <template>
   <TopSide :status="status" />
-  <PhotoGrid :photos="photos" :status="status" :perPage="query.per_page" />
+  <PhotoGrid :photos="(photos as PhotoDetails[])" 
+  :status="status" 
+  :perPage="query.per_page" 
+  />
 </template>
 
 <script setup lang="ts">
-import type { Photo } from '~/types'
+import type { Photo, PhotoDetails } from '~/types'
 const route = useRoute()
 const router = useRouter()
 
