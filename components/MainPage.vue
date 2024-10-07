@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Photo, PhotoDetails } from '~/types'
+import type { PhotoDetails, ResponseFromApi } from '~/types'
 const route = useRoute()
 const router = useRouter()
 
@@ -57,14 +57,14 @@ const { data: photos, status } = await useAsyncData('photos', async () => {
     Authorization: `Client-ID ${config.public.ACCESS_TOKEN}`,
   }
 
-  return await $fetch<Photo[]>(`${config.public.apiBaseUrl}/photos`, {
+  return await $fetch<ResponseFromApi[]>(`${config.public.apiBaseUrl}/photos`, {
     headers,
     query,
   })
 }, {
   server: false,
   transform: (response) => {
-    return response.map((photo: Photo) => ({
+    return response.map((photo: ResponseFromApi) => ({
       id: photo.id,
       name: photo.user.name,
       location: photo.user.location,

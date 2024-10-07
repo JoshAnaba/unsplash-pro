@@ -1,4 +1,4 @@
-interface Photo {
+interface ResponseFromApi {
   id: string;
   user: {
     name: string;
@@ -8,17 +8,17 @@ interface Photo {
   height: number;
   width: number;
 }
-type PhotoResponseData = {
-  photos: {
-    id: string;
-    name: string;
-    location: string;
-    urls: { [key: string]: string };
-    height: number;
-    width: number;
-  }[];
-  fetchedData: Date;
-};
+// type PhotoResponseData = {
+//   photos: {
+//     id: string;
+//     name: string;
+//     location: string;
+//     urls: { [key: string]: string };
+//     height: number;
+//     width: number;
+//   }[];
+//   fetchedData: Date;
+// };
 
 interface PhotoDetails {
   id: string;
@@ -30,4 +30,8 @@ interface PhotoDetails {
   width: number;
 }
 
-export type { Photo, PhotoDetails, PhotoResponseData }
+export type { 
+  ResponseFromApi, 
+  PhotoDetails, 
+  // PhotoResponseData 
+}
