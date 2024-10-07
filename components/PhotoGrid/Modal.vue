@@ -96,6 +96,11 @@ const closeModal = () => {
 
     h3 {
       font-weight: 600;
+      margin-bottom: 4px;
+    }
+    p {
+      color: #272727;
+      font-size: 12px;
     }
 
   }

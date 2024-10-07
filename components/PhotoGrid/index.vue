@@ -44,7 +44,7 @@ const { data: photos, pending: isLoading, error } = await useAsyncData('photos',
 }, {
   server: false,
   transform: (photos) => {
-    return route.name === 'search-id' ? photos.results.map(photo => ({ id: photo.id, name: photo.user.name, urls: photo.urls, height: photo.height, width: photo.width })) : photos.map(photo => ({ id: photo.id, name: photo.user.name, urls: photo.urls, height: photo.height, width: photo.width }))
+    return route.name === 'search-id' ? photos.results.map(photo => ({ id: photo.id, name: photo.user.name, location: photo.user.location, urls: photo.urls, height: photo.height, width: photo.width })) : photos.map(photo => ({ id: photo.id, name: photo.user.name, location: photo.user.location, urls: photo.urls, height: photo.height, width: photo.width }))
   },
 })
 

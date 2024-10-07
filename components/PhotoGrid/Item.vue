@@ -84,7 +84,8 @@ const handleImageLoad = () => {
   /* animation-delay: 0.8s; */
 
   & p {
-    font-size: 14px;
+    font-size: 12px;
+    opacity: 0.8;
   }
 }
 
