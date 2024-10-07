@@ -54,6 +54,7 @@ const route = useRoute()
     font-weight: 600;
     margin-top: 20px;
     color: rgb(108 123 141);
+    margin-top: 40px;
     animation: move-down-sm 0.4s ease-in-out forwards;
     span {
       font-size: inherit;
