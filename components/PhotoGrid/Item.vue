@@ -1,5 +1,5 @@
 <template>
-  <div :class="['photo-grid-item', getGridItemClass(deets.index)]" @click="openModal">
+  <div :class="['photo-grid-item']" @click="openModal">
     <NuxtImg :src="currentImage" object-fit="cover" layout="responsive" width="300" height="400"
       :alt="`Photo of ${deets.name}`" class="photo" @load="handleImageLoad"
       :class="[currentImage === deets.urls?.thumb ? 'low-quality' : '']" />
@@ -13,7 +13,6 @@
 </template>
 
 <script setup lang="ts">
-import { useGridItemClass } from '~/composables'
 import type { PhotoDetails } from '~/types'
 
 const { deets } = defineProps<{
@@ -22,8 +21,6 @@ const { deets } = defineProps<{
 const currentImage = ref(deets.urls?.thumb);
 
 const isModalVisible = ref(false);
-
-const getGridItemClass = (index: number) => useGridItemClass(index).value
 
 const openModal = () => {
   isModalVisible.value = true;
@@ -48,8 +45,9 @@ const handleImageLoad = () => {
 
 .photo {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
+  object-fit: cover;
   transition: transform var(--base-anim-duration) ease-in-out, filter var(--base-anim-duration) ease-in-out, opacity var(--base-anim-duration) ease-in-out;
 
   &.low-quality {
