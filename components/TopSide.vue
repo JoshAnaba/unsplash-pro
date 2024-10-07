@@ -12,11 +12,12 @@
       <template v-else>
         <div class="search-results">
           <button @click="router.push('/')">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgb(84 84 94)" width="24" height="24">
-              <path fill-rule="evenodd"
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path fill-rule="evenodd" stroke="2"
                 d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z"
                 clip-rule="evenodd" />
             </svg>
+            Back
           </button>
           <h2 v-if="isLoading">Searching for <span>"{{ route.params.id }}"</span></h2>
           <h2 v-else>Search Results for <span>"{{ route.params.id }}"</span></h2>
@@ -64,9 +65,21 @@ h2 {
     background: transparent;
     border: none;
     cursor: pointer;
-    font-size: 24px;
-    margin-bottom: 5px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
+    padding: 3px 12px;
+    border-radius: 8px;
+    font-weight: 500;
     color: rgb(108 123 141);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: rgba(108, 123, 141, 0.1);
+      /* color: white; */
+    }
   }
 }
 

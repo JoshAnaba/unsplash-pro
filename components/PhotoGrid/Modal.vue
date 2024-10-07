@@ -60,7 +60,7 @@ const closeModal = () => {
 .modal-content-wrapper {
   position: relative;
   width: 80%;
-  max-width: 60vw;
+  /* max-width: 60vw; */
   margin: 80px 0 0;
   display: flex;
   justify-content: center;
@@ -76,8 +76,6 @@ const closeModal = () => {
   animation: zoom-in-sm var(--base-anim-duration) ease-in-out forwards;
 
   .photo-container {
-    width: fit-content;
-    height: fit-content;
     max-height: 80%;
     overflow: hidden;
     border-top-left-radius: 10px;
@@ -98,6 +96,7 @@ const closeModal = () => {
       font-weight: 600;
       margin-bottom: 4px;
     }
+
     p {
       color: #272727;
       font-size: 12px;
@@ -153,14 +152,18 @@ const closeModal = () => {
 }
 
 @media screen and (max-width: 640px) {
-  .modal-content {
-  border-radius: 19px;
-
-  .photo-container {
-    border-top-left-radius: 18px;
-    border-top-right-radius: 18px;
+  .modal-content-wrapper {
+    margin: 40px 0 0;
   }
-}
+
+  .modal-content {
+    border-radius: 19px;
+
+    .photo-container {
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+    }
+  }
 
   img {
     min-width: 90vw !important;
@@ -181,6 +184,7 @@ const closeModal = () => {
     display: flex;
     justify-content: center;
     align-items: center;
+
     svg {
       fill: #161616
     }

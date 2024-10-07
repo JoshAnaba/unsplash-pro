@@ -44,7 +44,7 @@ const route = useRoute()
   margin: 0 auto;
 
   svg {
-    width: 100%;
+    width: 90%;
     height: auto;
     animation: move-up-sm 0.4s ease-in-out forwards;
   }
@@ -61,6 +61,14 @@ const route = useRoute()
       font-weight: inherit;
       text-transform: capitalize;
       color: rgb(36 53 74);
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .no-result {
+    svg {
+      width: 70%;
     }
   }
 }
