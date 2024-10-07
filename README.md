@@ -1,75 +1,21 @@
-# Nuxt 3 Minimal Starter
+# Photo Grid Nuxt 3 App
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is a Nuxt 3 application that displays a photo grid. The photos are fetched from an external API and displayed dynamically. It also handles query parameters such as `page` and `per_page`, and includes an image loading state and responsive layout.
 
-## Setup
+## Features
 
-Make sure to install the dependencies:
+- **Nuxt 3 Framework**: Leverages the power of Nuxt 3 for server-side rendering (SSR) and static site generation (SSG).
+- **Photo Grid**: Displays list of photos catering for their staggering sizes with smooth animations and a modal view for individual photos.
+- **API Integration**: Fetches data from an external API using useAsyncData + $fetch.
+- **Query Parameters Sync**: Syncs `page` and `per_page` query parameters with the router.
+- **Lazy Loading**: Efficient image loading with low-quality placeholder images using the NuxtImg library.
+- **Caching**: API response caching to avoid unnecessary requests and improve performance.
+- **Error Handling**: Displays a "No Results" message if no photos are found.
 
-```bash
-# npm
-npm install
+## Technologies Used
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- **Nuxt 3**: Server-side rendering and static site generation.
+- **TypeScript**: Strict type checking for predictable, scalable code.
+- **SCSS**: Styles written in CSS implementing nesting for easy maintainability and flexibility.
+- **CSS Variables & Animations**: Utilized for smooth transitions and responsiveness.
+- **Unsplash API**: External API for fetching images and metadata.
