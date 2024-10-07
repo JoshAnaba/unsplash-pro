@@ -43,17 +43,19 @@ const route = useRoute()
   max-width: 400px;
   margin: 0 auto;
 
-  & svg {
+  svg {
     width: 100%;
     height: auto;
+    animation: move-up-sm 0.4s ease-in-out forwards;
   }
 
-  & div {
+  div {
     font-size: 24px;
     font-weight: 600;
     margin-top: 20px;
     color: rgb(108 123 141);
-    & span {
+    animation: move-down-sm 0.4s ease-in-out forwards;
+    span {
       font-size: inherit;
       font-weight: inherit;
       text-transform: capitalize;

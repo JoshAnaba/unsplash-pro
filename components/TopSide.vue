@@ -42,7 +42,7 @@ h2 {
   padding: 0;
   color: rgb(36 53 74);
 
-  & span {
+  span {
     font-size: inherit;
     font-weight: inherit;
     text-transform: capitalize;
@@ -53,7 +53,7 @@ h2 {
 .search-results {
   /* padding: 0 40px; */
 
-  & button {
+  button {
     background: transparent;
     border: none;
     cursor: pointer;
@@ -70,11 +70,12 @@ h2 {
   justify-content: center;
   align-items: center;
 
-  & .inner {
+  .inner {
     display: flex;
     width: 100%;
     align-items: center;
     width: 80%;
+    animation: move-down-sm 0.8s ease-in-out forwards;
   }
 
   &:after {
@@ -86,7 +87,7 @@ h2 {
     height: var(--top-side-height);
   }
 
-  & .search-container {
+  .search-container {
     position: relative;
     display: inline-block;
     max-width: 1200px;
@@ -96,13 +97,13 @@ h2 {
     background-color: #fff;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 
-    & svg {
+    svg {
       position: absolute;
       top: 50%;
       transform: translate(50%, -50%)
     }
 
-    & input {
+    input {
       position: relative;
       width: 100%;
       padding: 15px 16px 15px 40px;
@@ -114,7 +115,7 @@ h2 {
       z-index: 1;
       outline: none;
 
-      &:placeholder {
+      :placeholder {
         color: rgb(57 61 89);
       }
     }

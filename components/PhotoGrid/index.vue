@@ -56,6 +56,7 @@ const { data: photos, pending: isLoading, error } = await useAsyncData('photos',
   position: relative;
   top: -40px;
   padding: 0 40px;
+  animation: move-up-sm 0.7s ease-in-out forwards;
 }
 
 
@@ -84,7 +85,7 @@ const { data: photos, pending: isLoading, error } = await useAsyncData('photos',
   &.loader {
     background-color: rgb(246 246 246);
 
-    & .text {
+    .text {
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -93,17 +94,16 @@ const { data: photos, pending: isLoading, error } = await useAsyncData('photos',
       bottom: 30px;
       left: 15px;
 
-      & div {
+      div {
         border-radius: 2px;
         background-color: rgb(231 231 231);
         height: 12px;
 
-
-        &:first-of-type {
+        :first-of-type {
           width: 60%;
         }
 
-        &:last-of-type {
+        :last-of-type {
           width: 40%;
         }
       }
@@ -131,33 +131,6 @@ const { data: photos, pending: isLoading, error } = await useAsyncData('photos',
 
 .span-row-5 {
   grid-row: span 5;
-}
-
-.loading-container {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 16px 0;
-}
-
-.loading-spinner {
-  width: 32px;
-  height: 32px;
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #3498db;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 /* Responsive breakpoints */

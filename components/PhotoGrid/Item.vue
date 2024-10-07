@@ -1,7 +1,7 @@
 <template>
   <!-- <div :class="['photo-grid-item', getGridItemClass(deets.index)]" @click="openModal" :style="{animationDelay: `${deets.index * 0.15}s`}"> -->
   <div :class="['photo-grid-item', getGridItemClass(deets.index)]" @click="openModal">
-    <NuxtImg :src="currentImage" object-fit="cover" layout="responsive" width="300" height="400"
+    <NuxtImg :src="currentImage" object-fit="cover" layout="responsive" width="300" height="400" format="webp"
       :alt="`Photo of ${deets.name}`" class="photo" @load="handleImageLoad"
       :class="[currentImage === deets.urls?.thumb ? 'low-quality' : '']" />
     <div class="overlay" />
@@ -38,7 +38,7 @@ const closeModal = () => {
 };
 
 const handleImageLoad = () => {
-  currentImage.value = deets.urls?.full;
+  currentImage.value = deets.urls?.regular;
 }
 </script>
 
@@ -93,27 +93,4 @@ const handleImageLoad = () => {
   transform: scale(1.03);
 }
 
-@keyframes move-up-sm-position {
-  0% {
-    opacity: 0;
-    bottom: 18px;
-  }
-
-  100% {
-    opacity: 1;
-    bottom: 30px;
-  }
-}
-
-@keyframes move-up-sm {
-  0% {
-    opacity: 0.5;
-    transform: translateY(-10px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 </style>
