@@ -138,6 +138,10 @@ const { data: photos, pending: isLoading, error } = await useAsyncData('photos',
 }
 
 @media screen and (max-width: 640px) {
+  .photo-grid-wrapper {
+    padding: 0 20px;
+  }
+
   .photo-grid {
     grid-template-columns: 1fr;
     grid-auto-rows: 200px;
@@ -148,8 +152,8 @@ const { data: photos, pending: isLoading, error } = await useAsyncData('photos',
   .span-row-3,
   .span-row-4,
   .span-row-5 {
-    grid-column: span 1;
-    grid-row: span 1;
+    grid-column: span 2;
+    grid-row: span 2;
   }
 }
 </style>
