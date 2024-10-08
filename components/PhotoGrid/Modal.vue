@@ -11,8 +11,7 @@
           </button>
           <div class="photo-container">
             <NuxtImg :src="currentImage" object-fit="cover" layout="responsive" :width="300" :height="400"
-              :alt="deets.alt_description" class="modal-photo"
-              loading="lazy"
+              :alt="deets.alt_description" class="modal-photo" loading="lazy"
               :class="[currentImage === deets.urls?.thumb ? 'low-quality' : '']" />
           </div>
 
@@ -56,7 +55,7 @@ const closeModal = () => {
   display: flex;
   justify-content: center;
   z-index: 50;
-  cursor:-webkit-zoom-out;
+  cursor: -webkit-zoom-out;
 }
 
 .modal-content-wrapper {
@@ -155,8 +154,12 @@ const closeModal = () => {
 }
 
 @media screen and (max-width: 640px) {
+  .modal-overlay {
+    align-items: center;
+  }
+
   .modal-content-wrapper {
-    margin: 40px 0 0;
+    margin: 20px 0 0;
   }
 
   .modal-content {
@@ -166,11 +169,12 @@ const closeModal = () => {
       border-top-left-radius: 18px;
       border-top-right-radius: 18px;
     }
-  }
 
-  img {
-    min-width: 90vw !important;
-    max-width: 90vw !important;
+    img {
+      min-width: 90vw !important;
+      max-width: 90vw !important;
+      height: fit-content;
+    }
   }
 
   .bottom {

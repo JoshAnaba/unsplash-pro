@@ -85,9 +85,11 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+
   &:not(.anim) {
     height: var(--top-side-height);
   }
+
   &.anim {
     height: var(--initial-top-side-height);
     animation: shrink-height 0.8s ease-in-out forwards;
@@ -139,7 +141,7 @@ h2 {
       position: relative;
       width: 100%;
       padding: 15px 16px 15px 58px;
-      height: 70px;
+      height: 80px;
       font-size: 16px;
       border-radius: 8px;
       border: 1px solid #ddd;
@@ -151,7 +153,8 @@ h2 {
       box-shadow: 0 5px 20px #0000001a;
 
       &:focus {
-        box-shadow: 0 10px 40px #0003;;
+        box-shadow: 0 10px 40px #0003;
+        ;
       }
 
       &:placeholder {
@@ -166,8 +169,15 @@ h2 {
     .inner {
       width: 100%;
       padding: 0 20px;
+
+      .search-container {
+        input {
+          height: 65px;
+        }
+      }
     }
   }
+
 }
 
 @keyframes shrink-height {
