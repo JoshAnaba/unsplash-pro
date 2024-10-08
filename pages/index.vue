@@ -12,5 +12,3 @@ useHead({
 })
 </script>
 <!-- TODO: check out for bugs -->
-<!-- TODO: go through the instructions for the last time -->
-<!-- TODO: cater for 404 search page -->
