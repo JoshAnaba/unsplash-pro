@@ -14,8 +14,8 @@ This is a Nuxt 3 application that displays a photo grid. The photos are fetched 
 
 ## Technologies Used
 
-- **Nuxt 3**: Server-side rendering and static site generation.
+- **Nuxt 3**: Server-side rendering and some other cool out-of-the box stuff like automatic syntaxes and component file imports.
 - **TypeScript**: Strict type checking for predictable, scalable code.
-- **SCSS**: Styles written in CSS implementing nesting for easy maintainability and flexibility.
+- **CSS Nesting**: Styles written in CSS implementing nesting for easy maintainability and flexibility.
 - **CSS Variables & Animations**: Utilized for smooth transitions and responsiveness.
-- **Unsplash API**: External API for fetching images and metadata.
+- **Unsplash API**: External API for fetching images.
