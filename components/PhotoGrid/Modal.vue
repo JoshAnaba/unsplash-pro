@@ -85,6 +85,7 @@ const closeModal = () => {
 
   img {
     max-width: 80vw;
+    min-width: 400px;
     max-height: 70vh;
   }
 
