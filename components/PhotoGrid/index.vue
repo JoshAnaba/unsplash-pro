@@ -31,15 +31,15 @@ const perPage = computed(() => Number(route.query.per_page) || 12);
   padding: 0 40px;
   top: 0px;
   opacity: 0;
-  animation: move-up-opacity 0.8s ease-in-out 0.8s forwards;
-}
+  animation: move-up-opacity 1s ease-in-out 0.8s forwards;
+  & .photo-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    columns: 3 300px;
+    gap: 25px 30px;
+    padding: 0 70px;
+  }
 
-.photo-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  columns: 3 300px;
-  gap: 25px 30px;
-  padding: 0 70px;
 }
 
 .photo-grid-item {
@@ -84,12 +84,6 @@ const perPage = computed(() => Number(route.query.per_page) || 12);
   }
 }
 
-.photo-grid-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 /* breakpoints */
 @media screen and (max-width: 1024px) {
   .photo-grid {
@@ -100,17 +94,16 @@ const perPage = computed(() => Number(route.query.per_page) || 12);
 @media screen and (max-width: 640px) {
   .photo-grid-wrapper {
     padding: 0 20px;
-  }
-
-  .photo-grid {
-    columns: 1 300px;
-    padding: 0 0
+    .photo-grid {
+      columns: 1 300px;
+      padding: 0 0
+    }
   }
 }
 
 @keyframes move-up-opacity {
-  30% {
-    opacity: 1;
+  50% {
+    opacity: 0.8;
   }
   100% {
     top: -40px;

@@ -61,7 +61,6 @@ const closeModal = () => {
 .modal-content-wrapper {
   position: relative;
   width: 80%;
-  /* max-width: 60vw; */
   margin: 80px 0 0;
   display: flex;
   justify-content: center;
@@ -85,10 +84,8 @@ const closeModal = () => {
   }
 
   img {
-    width: auto;
-    min-width: 600px;
     max-width: 80vw;
-    height: 70vh;
+    max-height: 70vh;
   }
 
   .bottom {

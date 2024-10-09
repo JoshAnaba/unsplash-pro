@@ -36,9 +36,6 @@ const handleImageLoad = () => {
 </script>
 
 <style scoped>
-/* .photo-grid-item {
-  animation: move-up-sm 0.9s ease-in-out forwards;
-} */
 .photo-grid-item:hover .photo {
   transform: scale(1.05);
 }

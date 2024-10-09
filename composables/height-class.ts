@@ -6,11 +6,11 @@ export const useHeightClass = (index: number) => {
     if (index === 0) {
       className = 'height-4'
     } else if (index === 1) {
-     className = 'height-4'
+     className = 'height-3'
     } else if (index === 2) {
-      className = 'height-4'
+      className = 'height-5'
     } else if (index % 3 === 0) {
-      className = 'height-4'
+      className = 'height-3'
     } else if (index % 5 === 0) {
       className = 'height-5'
     } else if (index % 7 === 0) {

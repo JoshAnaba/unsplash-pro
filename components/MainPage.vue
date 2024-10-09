@@ -26,7 +26,7 @@ const { data: photos, status } = await useAsyncData('photos', async () => {
     query,
   })
 }, {
-  server: true,
+  server: false,
   transform: (response) => {
     return response.length ? response.map((photo: ResponseFromApi) => ({
       id: photo.id,
