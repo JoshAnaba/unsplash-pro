@@ -33,23 +33,6 @@ p {
   font-size: 1rem;
 }
 
-
-/* transitions && keyframes */
-
-.page-enter-active,
-.page-leave-active {
-  transition: opacity var(--base-anim-duration);
-  -webkit-transition: opacity var(--base-anim-duration);
-  -moz-transition: opacity var(--base-anim-duration);
-  -ms-transition: opacity var(--base-anim-duration);
-  -o-transition: opacity var(--base-anim-duration);
-}
-.page-enter,
-.page-leave-to {
-  opacity: 0;
-}
-
-
 @keyframes move-up-sm-position {
   0% {
     opacity: 0;

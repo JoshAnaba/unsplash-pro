@@ -32,14 +32,14 @@ const perPage = computed(() => Number(route.query.per_page) || 12);
   top: 0px;
   opacity: 0;
   animation: move-up-opacity 1s ease-in-out 0.8s forwards;
-  & .photo-grid {
+
+  .photo-grid {
     max-width: 1200px;
     margin: 0 auto;
     columns: 3 300px;
     gap: 25px 30px;
     padding: 0 70px;
   }
-
 }
 
 .photo-grid-item {
@@ -52,7 +52,7 @@ const perPage = computed(() => Number(route.query.per_page) || 12);
   margin-bottom: 20px;
 
   &:not(.loader) {
-    cursor:-webkit-zoom-in;
+    cursor: -webkit-zoom-in;
   }
 
   &.loader {
@@ -94,9 +94,10 @@ const perPage = computed(() => Number(route.query.per_page) || 12);
 @media screen and (max-width: 640px) {
   .photo-grid-wrapper {
     padding: 0 20px;
+
     .photo-grid {
       columns: 1 300px;
-      padding: 0 0
+      padding: 0;
     }
   }
 }

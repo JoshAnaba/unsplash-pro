@@ -35,9 +35,17 @@ const handleImageLoad = () => {
 }
 </script>
 
-<style scoped>
-.photo-grid-item:hover .photo {
-  transform: scale(1.05);
+<style lang="scss" scoped>
+.photo-grid-item {
+  &:hover {
+    .photo {
+      transform: scale(1.05);
+    }
+
+    .text {
+      transform: scale(1.03);
+    }
+  }
 }
 
 .photo {
@@ -45,7 +53,9 @@ const handleImageLoad = () => {
   height: auto;
   display: block;
   object-fit: cover;
-  transition: transform var(--base-anim-duration) ease-in-out, filter var(--base-anim-duration) ease-in-out, opacity var(--base-anim-duration) ease-in-out;
+  transition: transform var(--base-anim-duration) ease-in-out,
+              filter var(--base-anim-duration) ease-in-out,
+              opacity var(--base-anim-duration) ease-in-out;
 
   &.low-quality {
     filter: blur(3px);
@@ -65,7 +75,6 @@ const handleImageLoad = () => {
 }
 
 .text {
-  /* text-align: center; */
   color: #fff;
   position: absolute;
   bottom: 30px;
@@ -73,15 +82,10 @@ const handleImageLoad = () => {
   opacity: 0;
   transition: transform var(--base-anim-duration) ease-in-out;
   animation: move-up-sm-position 0.7s ease-in-out forwards;
-  /* animation-delay: 0.8s; */
 
   & p {
     font-size: 12px;
     opacity: 0.8;
   }
-}
-
-.photo-grid-item:hover .text {
-  transform: scale(1.03);
 }
 </style>

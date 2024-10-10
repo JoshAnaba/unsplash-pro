@@ -47,7 +47,7 @@ const closeModal = () => {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -101,7 +101,6 @@ const closeModal = () => {
       color: #272727;
       font-size: 12px;
     }
-
   }
 }
 
@@ -138,7 +137,6 @@ const closeModal = () => {
     transform: rotate(180deg) scale(1.2);
   }
 }
-
 
 .modal-enter-active,
 .modal-leave-active {
@@ -191,8 +189,9 @@ const closeModal = () => {
     align-items: center;
 
     svg {
-      fill: #161616
+      fill: #161616;
     }
   }
 }
+
 </style>

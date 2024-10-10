@@ -1,0 +1,90 @@
+// main.scss
+
+@import '_variables';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-base;
+  font-size: $base-font-size;
+  font-weight: $base-font-weight;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $background-color;
+}
+
+:root {
+  --base-anim-duration: $base-anim-duration;
+}
+
+a {
+  text-decoration: none;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  line-height: 1.5;
+}
+
+p {
+  font-size: $p-font-size;
+}
+
+// Animations
+
+@keyframes move-up-sm-position {
+  0% {
+    opacity: 0;
+    bottom: 18px;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: 30px;
+  }
+}
+
+@keyframes move-up-sm {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes move-down-sm {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoom-in-sm {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

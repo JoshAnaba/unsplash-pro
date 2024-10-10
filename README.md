@@ -19,3 +19,7 @@ This is a Nuxt 3 application that displays a photo grid. The photos are fetched 
 - **CSS Nesting**: Styles written in CSS implementing nesting for easy maintainability and flexibility.
 - **CSS Variables & Animations**: Utilized for smooth transitions and responsiveness.
 - **Unsplash API**: External API for fetching images.
+
+## Live Demo
+
+[Check out the live demo here](https://unsplash-pro-theta.vercel.app)

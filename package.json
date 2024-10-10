@@ -17,5 +17,8 @@
     "pinia": "^2.2.4",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "sass": "^1.79.4"
   }
 }
