@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   ssr: false,
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxt/image', '@pinia/nuxt'],
+  modules: ['@nuxt/image', '@pinia/nuxt', '@nuxtjs/seo'],
   css: ['@/assets/global.css'],
   runtimeConfig: {
     public: {

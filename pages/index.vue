@@ -6,9 +6,14 @@
 useHead({
   title: 'Photo Library by Jon Doe',
   meta: [
-  { property: 'og:title', content: 'Photo Library by Jon Doe' },
-    { property: 'og:description', content: 'A photo library viewing and sharing photos' },
+    {
+      name: 'description',
+      content: 'This is the home page description.',
+    },
+    {
+      property: 'og:title', 
+      content: 'Photo Library by Jon Doe' 
+    },
   ],
 })
 </script>
-<!-- TODO: check out for bugs -->

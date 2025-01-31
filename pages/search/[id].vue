@@ -5,11 +5,25 @@
 
 <script setup lang="ts">
 const route = useRoute()
+// useHead({
+//   title: 'Search Results for ' + route.params.id,
+//   meta: [
+//   { property: 'og:title', content:  'Search Results for ' + route.params.id, },
+//   { property: 'og:description', content: 'A photo library viewing and sharing photos' },
+//   ],
+// })
+
 useHead({
   title: 'Search Results for ' + route.params.id,
   meta: [
-  { property: 'og:title', content:  'Search Results for ' + route.params.id, },
-  { property: 'og:description', content: 'A photo library viewing and sharing photos' },
+    {
+      name: 'description',
+      content: 'This is the search results page description.',
+    },
+    {
+      property: 'og:title', 
+      content: 'Search Results for ' + route.params.id
+    },
   ],
 })
 import type { ResponseFromApi, PhotoDetails } from '~/types'
