@@ -13,7 +13,7 @@ const route = useRoute()
 //   ],
 // })
 
-useHead(() => ({
+useHead({
   title: `Search Results`,
   meta: [
     {
@@ -25,7 +25,7 @@ useHead(() => ({
       content: `Search Results`,
     },
   ],
-}));
+});
 import type { ResponseFromApi, PhotoDetails } from '~/types'
 import { useQueryParamsForPhotos } from '~/composables/photo-query-params';
 
