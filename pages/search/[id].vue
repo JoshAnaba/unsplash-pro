@@ -4,12 +4,18 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
+useHead({
+  title: 'Search Results for ' + route.params.id,
+  meta: [
+  { property: 'og:title', content:  'Search Results for ' + route.params.id, },
+  { property: 'og:description', content: 'A photo library viewing and sharing photos' },
+  ],
+})
 import type { ResponseFromApi, PhotoDetails } from '~/types'
 import { useQueryParamsForPhotos } from '~/composables/photo-query-params';
 
 const { query } = useQueryParamsForPhotos()
-
-const route = useRoute()
 
 const emit = defineEmits(['onStatusChange'])
 const config = useRuntimeConfig()
