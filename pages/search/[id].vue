@@ -14,7 +14,7 @@ const route = useRoute()
 // })
 
 useHead(() => ({
-  title: `Search Results for ${route.params.id}`,
+  title: `Search Results`,
   meta: [
     {
       name: 'description',
@@ -22,7 +22,7 @@ useHead(() => ({
     },
     {
       property: 'og:title',
-      content: `Search Results for ${route.params.id}`,
+      content: `Search Results`,
     },
   ],
 }));
