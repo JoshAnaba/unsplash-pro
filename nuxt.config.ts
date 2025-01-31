@@ -6,7 +6,6 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: 'A photo library viewing and sharing photos' },
         { property: 'og:title', content: 'Photo Library by Jon Doe' },
         { property: 'og:description', content: 'A photo library viewing and sharing photos' },
       ],
