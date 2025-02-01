@@ -14,6 +14,18 @@ useHead({
       property: 'og:title', 
       content: 'Photo Library by Jon Doe - Home' 
     },
+    {
+      property: 'og:description',
+      content: 'This is the home page description.',
+    },
+    {
+      property: 'twitter:title',
+      content: 'Home Page',
+    },
+    {
+      property: 'twitter:description',
+      content: 'This is the home page description.',
+    },
   ],
 })
 </script>
