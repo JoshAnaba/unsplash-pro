@@ -14,18 +14,18 @@ const route = useRoute()
 // })
 
 useHead({
-  title: `Search Results`,
+  title: 'Search Results for ' + route.params.id,
   meta: [
     {
       name: 'description',
       content: 'This is the search results page description.',
     },
     {
-      property: 'og:title',
-      content: `Search Results`,
+      property: 'og:title', 
+      content: 'Search Results for ' + route.params.id
     },
   ],
-});
+})
 import type { ResponseFromApi, PhotoDetails } from '~/types'
 import { useQueryParamsForPhotos } from '~/composables/photo-query-params';
 
