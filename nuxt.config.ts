@@ -1,20 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  app: {
-    head: {
-      // title: 'Photo Library by Jon Doe',
-      meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        // { property: 'og:title', content: 'Photo Library by Jon Doe' },
-        // { property: 'og:description', content: 'A photo library viewing and sharing photos' },
-      ],
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-      ]
-    }
-  },
-  ssr: false,
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: ['@nuxt/image', '@pinia/nuxt', '@nuxtjs/seo'],
