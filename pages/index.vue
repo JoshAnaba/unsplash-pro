@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'Photo Library by Jon Doe',
+  title: 'Photo Library by Jon Doe - Home',
   meta: [
     {
       name: 'description',
@@ -12,7 +12,7 @@ useHead({
     },
     {
       property: 'og:title', 
-      content: 'Photo Library by Jon Doe' 
+      content: 'Photo Library by Jon Doe - Home' 
     },
   ],
 })
