@@ -2,7 +2,7 @@
   <MainPage />
 </template>
 
-<script setup lang="ts">
+<script setup>
 useHead({
   title: 'Photo Library by Jon Doe - Home',
   meta: [
